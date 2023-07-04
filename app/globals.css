@@ -40,6 +40,9 @@ a {
 
 @layer components {
 
+
+
+
 /* ------------------- */
 /* ---- GRADIENTS --- */
 /* ------------------- */
@@ -55,12 +58,16 @@ a {
 background: linear-gradient(180deg, #e5e3ed 0%, #d7d2eb 80%, #b59fe7 100%); */
 }
 
-.background_noise {
-background-image: url('../public/nnnoise.svg'); 
+@layer utilities {
+  .background_noise {
+    background-image: url('../public/nnnoiseceriseopacity.svg'); 
+    }
+    .background_noise_dark {
+    background-image: url('../public/nnnoisedark.svg');
+    }
 }
-.background_noise_dark {
-background-image: url('../public/nnnoisedark.svg');
-}
+
+
 .loader_icon {
   animation: spin 2s linear infinite;
 }
