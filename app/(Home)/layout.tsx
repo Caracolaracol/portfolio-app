@@ -4,7 +4,6 @@ import '../globals.css'
 import Providers from '../Providers';
 import Image from 'next/image';
 
-import nnnoise from '@/public/nnnoise.svg'
 
 export const metadata = {
   title: 'Caracolaracol || Creative Developer',

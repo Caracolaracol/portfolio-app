@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import ParticlesTS from '@/components/Particles'
 
@@ -9,6 +9,7 @@ import myself2 from 'public/images/yo2.jpg'
 import LoaderScreen from '@/components/LoaderScreen'
 
 function Page() {
+    const refLinks = useRef<HTMLDivElement | any>(null)
     const [done,setDone] = useState<any>(false);
 
     useEffect(() => {
@@ -18,13 +19,29 @@ function Page() {
     },[done])
     
     const language = 'EN'
-    const styles = 'font-chrono text-2xl tablet:text-3xl laptop:text-4xl'
+    const styles = 'font-chrono text-2xl tablet:text-3xl laptop:text-4xl p-2'
+
+    const handlerMouseLinks = (event:any) => { // BG ANIMATED OF FOOTER LINKS 
+        const { left, top, width, height }:any = event.target.getBoundingClientRect()
+
+        refLinks.current.style.opacity = "1"
+        refLinks.current.style.visibility = "visible"
+        refLinks.current?.style.setProperty("--left", `${left}px`)
+        refLinks.current?.style.setProperty("--top", `${top}px`)
+        refLinks.current?.style.setProperty("--width", `${width}px`)
+        refLinks.current?.style.setProperty("--height", `${height}px`)
+    }
+
+    const handlerLeaveLinks = () => {
+        refLinks.current.style.opacity = "0"
+        refLinks.current.style.visibility = "hidden"
+    }
 
 
     return (
         <>
             {
-                (myself2 && done) ? <div className=" flex flex-col justify-center self-center items-center transition_verylong mb-12">
+                (myself2 && done) ? <div className="flex flex-col justify-center self-center items-center mb-12">
                     <header className="flex w-64 h-[237px] justify-center mb-4">
                         <div className="relative w-full h-full rounded-full flex justify-center items-end">
                             <Image
@@ -60,9 +77,9 @@ function Page() {
                         </h2>
                     </main>
 
-                    <nav className="flex justify-center py-2 tablet:py-3 z-50">
+                    <nav className="flex justify-center py-2 tablet:py-3 z-50" >
                         <Link href="/portfolio">
-                            <button className="flex items-center justify-center gap-2 font-tommy transition-colors bg-violet text-snow hover:text-cerise dark:bg-violet  dark:hover:text-cerise dark:text-blancon rounded-lg text-2xl h-10 w-fit px-6 py-6 tablet:py-0 tablet:h-14 tablet:px-4 desktop:px-7 desktop:py-8 tablet:text-4xl desktop:text-4xl tablet:tracking-wider min-w-[14.5rem]  tablet:min-w-[20rem] laptop:min-w-[22rem] group">
+                            <button  className="flex items-center justify-center gap-2 font-tommy transition-colors bg-violet text-snow hover:text-cerise dark:bg-violet  dark:hover:text-cerise dark:text-blancon rounded-lg text-2xl h-10 w-fit px-6 py-6 tablet:py-0 tablet:h-14 tablet:px-4 desktop:px-7 desktop:py-8 tablet:text-4xl desktop:text-4xl tablet:tracking-wider min-w-[14.5rem]  tablet:min-w-[20rem] laptop:min-w-[22rem] group">
                                 <p className="text-cerise group-hover:text-snow transition-colors">
                                     {"{"}
                                 </p>
@@ -73,36 +90,71 @@ function Page() {
                             </button>
                         </Link>
                     </nav>
-                    <footer className="flex flex-col justify-between text-center dark:text-blancon mb-8 z-50">
-                        <div className="flex gap-4 shrink self-center">
-                            <a
-                                className={styles}
-                                href="https://github.com/Caracolaracol"
-                                target="_blank"
-                            >
-                                Github
-                            </a>
-                            <a
-                                className={styles}
-                                href="https://www.linkedin.com/in/agustin-rojas-c4r4c01/"
-                                target="_blank"
-                            >
-                                Linkedin
-                            </a>
-                            <a
-                                className={styles}
-                                href="https://www.instagram.com/caracol.___/"
-                                target="_blank"
-                            >
-                                Instagram
-                            </a>
-                            <a
-                                className={styles}
-                                href="https://drive.google.com/file/d/1leg_c4dXK_TOjvJ2J35yD0Hf5FyeqX8f/view?usp=sharing"
-                                target="_blank"
-                            >
-                                CV
-                            </a>
+                    <footer className="flex flex-col justify-between text-center dark:text-snow mb-8 z-50">
+                        <ul className="flex gap-2 shrink" >
+                            <li className='' onMouseEnter={handlerMouseLinks}
+                                onMouseLeave={handlerLeaveLinks} >
+
+                                <a
+                                    className={styles}
+                                    href="https://github.com/Caracolaracol"
+                                    target="_blank"
+
+                                >
+                                    Github
+                                </a>
+                            </li>
+                            <li onMouseEnter={handlerMouseLinks}
+                                onMouseLeave={handlerLeaveLinks}>
+
+                                <a
+                                    className={styles}
+                                    href="https://www.linkedin.com/in/agustin-rojas-c4r4c01/"
+                                    target="_blank"
+
+
+                                >
+                                    Linkedin
+                                </a>
+                            </li>
+                            <li onMouseEnter={handlerMouseLinks}
+                                onMouseLeave={handlerLeaveLinks}>
+
+                                <a
+                                    className={styles}
+                                    href="https://www.instagram.com/caracol.___/"
+                                    target="_blank"
+
+                                >
+                                    Instagram
+                                </a>
+                            </li>
+                            <li onMouseEnter={handlerMouseLinks}
+                                onMouseLeave={handlerLeaveLinks}>
+
+                                <a
+                                    className={styles}
+                                    href="https://drive.google.com/file/d/1leg_c4dXK_TOjvJ2J35yD0Hf5FyeqX8f/view?usp=sharing"
+                                    target="_blank"
+
+                                >
+                                    CV
+                                </a>
+                            </li>
+                        </ul>
+                        <div
+                            ref={refLinks}
+                            className={`
+                                absolute bg-ocre/25 backdrop-blur-lg rounded-md
+                                left-[var(--left)] top-[var(--top)]
+
+                                w-[var(--width)] h-[var(--height)]
+                                transition-all duration-300
+                                ease-in-out
+                                opacity-0
+                                -z-10 
+                            `}>
+
                         </div>
                         <div className={`flex justify-center gap-3`}> </div>
                     </footer>
