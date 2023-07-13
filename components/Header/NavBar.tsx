@@ -5,15 +5,13 @@ import { languageAtom } from "@/app/Store"
 import { useAtomValue } from "jotai"
 
 import { NAV_NAMES } from "@/config/nav"
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 
 
 function NavBar() {
     const pathname = usePathname()
     const language = useAtomValue(languageAtom)
     const refLinks = useRef<HTMLDivElement | any>(null)
-
-
 
     const handlerMouseLinks = (event:any) => { // BG ANIMATED OF FOOTER LINKS 
         const { left, top, width, height }:any = event.target.getBoundingClientRect()
@@ -31,8 +29,7 @@ function NavBar() {
 
     }
 
-
-    const styles = 'tablet:text-xs laptop:text-lg desktop:text-xl self-center text-center font-tommyregular hover:text-darkpurple dark:hover:text-timberwolf'
+    const styles = 'tablet:text-xs laptop:text-lg desktop:text-xl self-center text-center font-tommyregular hover:text-ocrelight dark:hover:text-ocrelight'
     
     return (
         <nav className='laptop:max-w-[18rem] laptop:min-w-[15rem] flex items-center z-50'>

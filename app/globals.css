@@ -192,15 +192,12 @@ background: linear-gradient(180deg, #e5e3ed 0%, #d7d2eb 80%, #b59fe7 100%); */
       transform: translate(0px, 0);
     }
   }
-  .shownavbar {
-    transition: ease;
-    animation: showNavBar 850 ease-out;
-  }
+
   
   @keyframes showNavBar {
     from {
       opacity: 0;
-      transform: translate(300px, 0);
+      transform: translate(150px, 0);
     }
 
     to {
@@ -210,7 +207,7 @@ background: linear-gradient(180deg, #e5e3ed 0%, #d7d2eb 80%, #b59fe7 100%); */
   }
   .showNavBar {
     transition: ease;
-    animation: showNavBar 850ms ease-out;
+    animation: showNavBar 450ms ease-out;
   }
   .showOpacity-0 {
     transition: ease;
@@ -415,5 +412,16 @@ background: linear-gradient(180deg, #e5e3ed 0%, #d7d2eb 80%, #b59fe7 100%); */
   .TooltipArrow {
     fill: #332230;
   }
-  
+
+
+  .svgmorado {
+    filter: drop-shadow(0px 0px 9px rgba(39, 11, 92, 0.484));
+    clip-path: circle();
+  }
+  .svg {
+    filter: drop-shadow(0px 0px 2px rgba(195, 181, 155, 0.4));
+  }
+  .svghover {
+    filter: drop-shadow(0px 0px 9px rgba(195, 181, 155, 0.5));
+  }
 }

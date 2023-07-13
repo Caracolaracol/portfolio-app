@@ -49,7 +49,7 @@ export default function Page() {
                 <p className="text-naranjad text-naranja dark:text-naranja font-tommybold font-black text-[1.5rem] tablet:text-[2rem] svg group-hover:text-fucsia">{`{ }`}</p>
               </div>
               <div onClick={handlerSide} className="cursor-pointer min-w-[59px]">
-                <p className="font-tommyregular text-[0.9rem] opacity-80 antialiased text-center tablet:text-whitem dark:text-fucsia transition-colors tracking-wider ">
+                <p className="font-tommyregular text-[0.9rem] opacity-80 antialiased text-center tablet:text-dark dark:text-cerise transition-colors tracking-wider ">
                   {language == "EN" ? "projects" : "proyectos"}
                 </p>
               </div>
@@ -66,7 +66,8 @@ export default function Page() {
       </div>
 
       <div className="hidden laptop:flex items-center justify-center">
-          <Darwin />
+
+        <Darwin />
       </div>
     </div>
 

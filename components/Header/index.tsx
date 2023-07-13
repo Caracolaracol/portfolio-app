@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import logoCaracol from '@/public/caracolaracol.png'
 import NavBar from './NavBar';
-import TooltipNav from './TootipNav';
+import NavBarBtns from './NavBarBtns';
 import NavBarMobile from './NavBarMobile';
 
 function Header() {
@@ -21,7 +21,7 @@ function Header() {
               <div className="hidden tablet:mr-4 laptop:flex"> 
                    <NavBar /> 
                   <div className='items-center flex mx-4 max-h-[3rem] min-h-[3rem] border-l-[1px] border-opacity-50 dark:border-opacity-70 border-l-timberwolf dark:border-l-timberwolf self-center'></div>
-                  <TooltipNav /> 
+                  <NavBarBtns /> 
               </div>
               <div className='laptop:hidden flex'>
                   <div key='menunav' className='laptop:hidden flex flex-row showOpacityShort'>

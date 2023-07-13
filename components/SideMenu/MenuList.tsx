@@ -5,8 +5,8 @@ import { useParams, usePathname } from 'next/navigation'
 
 import Subtitle from './Subtitle'
 import ProjectLink from './ProjectLink'
-import { getProjects, getProjectsDataArray } from '@/app/api'
-import { LINKLIST } from '@/constants/constants'
+import { getProjectsDataArray } from '@/app/api/projects'
+import { LINKLIST } from '@/config/links'
 import Link from 'next/link'
 
 function MenuList() {
@@ -22,14 +22,10 @@ function MenuList() {
           const data = await getProjectsDataArray()
           setDataProjects(data.namesArrayData)
         }
-        const fetchBlogEntries = async () => {
-          const data = await getProjects()
-          setBlogEntries(data)
-        }
+
         fetchProjectNames()
-        fetchBlogEntries()
         setIsLoading(false)
-    },[setDataProjects,setBlogEntries, setIsOutside])
+    },[setDataProjects, setIsOutside])
     if (isLoading){
     return <div></div>
     } else {
@@ -68,6 +64,24 @@ function MenuList() {
                         {dataProjects
                             .filter(
                                 (element: any) => element.projectType == "coding projects"
+                            )
+                            .map((filtered: any) => (
+                                <ProjectLink
+                                    key={filtered.id}
+                                    id={filtered.id}
+                                    projectname={params.project}
+                                    name={filtered.name}
+                                    pathname={pathname}
+                                    outside={isOutside}
+                                    routeInitial={'/portfolio'} 
+                                />
+                            ))}
+                    </ul>
+                    <Subtitle>Apps</Subtitle>
+                    <ul>
+                        {dataProjects
+                            .filter(
+                                (element: any) => element.projectType == "apps"
                             )
                             .map((filtered: any) => (
                                 <ProjectLink

@@ -65,19 +65,14 @@ function SideMenu() {
     <aside
       ref={wrapperRef}
       className={`${showSideMenu ? "!block showsidemenu" : ""} ${hideSideMenuAnimation ? "hidesidemenu" : ""
-        } hidden laptop:showsidemenu  overflow-y-scroll hide_scrollbar laptop:block  w-[20rem] h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 z-30 dark:bg-richblack bg-black text-snow shadow-xl laptop:shadow-none laptop:dark:bg-negron laptop:dark:bg-opacity-70`}
-    >
+        } hidden laptop:showsidemenu  overflow-y-scroll hide_scrollbar laptop:block  w-[20rem] h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 z-30 dark:bg-richblack bg-black text-snow shadow-xl laptop:shadow-none laptop:dark:bg-negron laptop:dark:bg-opacity-70`}>
       <div className='mx-3 border-b-[1px] border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 z-[99] flex'>
         <Link href='/'>
           <Image src={logoCaracol} className='w-20 tablet:w-[5.5rem] drop-shadow-md showOpacityShort z-[99]' alt='caracol' priority />
         </Link>
-
-       
       </div>
 
       <div className="pl-[1.2rem] pt-3 laptop:pt-[2.5rem] mb-4 rounded-tr-sm rounded-br-sm overflow-y-scroll hide_scrollbar">
-
-
         <div onClick={handlerSide} className="laptop:hidden absolute top-2 flex flex-col items-center pl-[15rem] group">
           <div className='flex justify-center cursos bg-naranja  dark:bg-violeta filtromorado w-8 h-8 tablet:w-8 tablet:h-8 items-center active:bg-violetaactive dark:active:bg-violetaactive transition-colors cursor-pointer rounded-full -translate-x-[1px]'>
             <p className='text-naranjad text-violeta dark:text-naranja font-tommybold font-black text-lg tablet:text-lg svg group-hover:text-fucsia'>{` } `}</p>
@@ -89,13 +84,12 @@ function SideMenu() {
 
 
         <div ref={ulRef} className="flex group">
-
-         {/*  <MenuList /> */}
+          <MenuList />
           <p className="hidden self-end text-fucsiadark opacity-90 group-hover:animate-bounce">▼</p>
         </div>
       </div>
-        </aside>
-    )
+    </aside>
+  )
 }
 
 
