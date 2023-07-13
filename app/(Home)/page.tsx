@@ -23,16 +23,15 @@ function Page() {
 
     const handlerMouseLinks = (event:any) => { // BG ANIMATED OF FOOTER LINKS 
         const { left, top, width, height }:any = event.target.getBoundingClientRect()
-
         refLinks.current.style.opacity = "1"
         refLinks.current.style.visibility = "visible"
         refLinks.current?.style.setProperty("--left", `${left}px`)
-        refLinks.current?.style.setProperty("--top", `${top}px`)
+        refLinks.current?.style.setProperty("--top", `${top +35}px`)
         refLinks.current?.style.setProperty("--width", `${width}px`)
-        refLinks.current?.style.setProperty("--height", `${height}px`)
+        refLinks.current?.style.setProperty("--height", `${height - 40}px`)
     }
 
-    const handlerLeaveLinks = () => {
+    const handlerLeaveLinks = () => { // Leave mouse of the footer links
         refLinks.current.style.opacity = "0"
         refLinks.current.style.visibility = "hidden"
     }
@@ -41,13 +40,13 @@ function Page() {
     return (
         <>
             {
-                (myself2 && done) ? <div className="flex flex-col justify-center self-center items-center mb-12">
+                (myself2 && done) ? <div className="flex transition_verylong flex-col justify-center self-center items-center mb-12">
                     <header className="flex w-64 h-[237px] justify-center mb-4">
                         <div className="relative w-full h-full rounded-full flex justify-center items-end">
                             <Image
                                 alt="Myself with nature background"
-                                className="round_img1"
                                 src={myself2}
+                                className="round_img1"
                             />
                             <Image
                                 alt="Myself with other nature background "
@@ -145,7 +144,7 @@ function Page() {
                         <div
                             ref={refLinks}
                             className={`
-                                absolute bg-ocre/25 backdrop-blur-lg rounded-md
+                                absolute bg-cerise/20 backdrop-blur-lg rounded-md
                                 left-[var(--left)] top-[var(--top)]
 
                                 w-[var(--width)] h-[var(--height)]
