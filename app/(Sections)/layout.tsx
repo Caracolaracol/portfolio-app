@@ -59,7 +59,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       <body className='dark:text-snow text-black dark:bg-dark bg-snow'>
         <Providers>
             <div className="relative min-h-screen flex flex-col justify-between" >
-              <div className=''>
+              <div>
                 <Header />
                 <div className="pb-[7rem] tablet:pb-[5.9rem] w-[95vw] tablet:w-[97vw]" >
                   <div className='top-0 h-20 tablet:h-[5.9rem]'>

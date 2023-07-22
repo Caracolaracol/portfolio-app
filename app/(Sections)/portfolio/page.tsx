@@ -40,7 +40,7 @@ export default function Page() {
   }
 
   return (
-    <div className="showOpacity-1">
+    <div className="transition-opacity-0">
       <div className="absolute flex justify-center items-center m-[5vw] top-0 right-0 bottom-0 left-0 laptop:hidden "> 
         <div className="flex items-center justify-center desktop:max-w-[50rem] pb-4 gap-[10vw]">
           <div className='flex items-center flex-col '>

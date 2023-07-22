@@ -17,7 +17,7 @@ function Darwin() {
     className="left-[75%] top-[24%] desktop:left-[70%] desktop:top-[22%]"
       style={{
         position: 'fixed',
-        zIndex:9999,
+        zIndex:9,
         top: position.y,
         left: position.x
         

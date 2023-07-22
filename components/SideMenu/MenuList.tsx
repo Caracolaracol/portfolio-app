@@ -5,7 +5,7 @@ import { useParams, usePathname } from 'next/navigation'
 
 import Subtitle from './Subtitle'
 import ProjectLink from './ProjectLink'
-import { getProjectsDataArray } from '@/app/api/projects'
+import { getProjectsNamesArray } from '@/app/api/projects'
 import { LINKLIST } from '@/config/links'
 import Link from 'next/link'
 
@@ -19,7 +19,7 @@ function MenuList() {
 
     useEffect(() => {
         const fetchProjectNames = async () => {
-          const data = await getProjectsDataArray()
+          const data = await getProjectsNamesArray()
           setDataProjects(data.namesArrayData)
         }
 
@@ -144,7 +144,7 @@ function MenuList() {
                             return (
                                 <li key={el.name}>
                                     <a
-                                        className="font-tommyregular indent-1 laptop:text-[15px] desktop:text-[17px] tracking-wide antialiased text-blancod dark:text-negron laptop:dark:text-blancon dark:hover:text-naranjalink hover:text-naranjalink"
+                                        className="font-tommyregular indent-1 laptop:text-[15px] desktop:text-[17px] tracking-wide antialiased text-snow dark:text-dark laptop:dark:text-snow dark:hover:text-cerise hover:text-ocrelight"
                                         href={el.link}
                                         target="_blank"
                                     >
@@ -167,7 +167,7 @@ function MenuList() {
                       href={`/blog/${element.id}`}
                       key={element.id}
                     >
-                      <li key={element.id} className="font-tommyregular indent-1 laptop:text-[15px] desktop:text-[17px] tracking-wide antialiased text-blancod dark:text-negron laptop:dark:text-blancon dark:hover:text-naranjalink hover:text-naranjalink">
+                      <li key={element.id} className="font-tommyregular indent-1 laptop:text-[15px] desktop:text-[17px] tracking-wide antialiased text-snow dark:text-dark laptop:dark:text-snow dark:hover:text-cerise hover:text-ocrelight">
                         -{" "}
                         {`${element.name} (${element.date[1]} ${element.date[0]})`}
                       </li>

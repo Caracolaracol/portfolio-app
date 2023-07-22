@@ -33,7 +33,6 @@ function NavBar() {
     
     return (
         <nav className='laptop:max-w-[18rem] laptop:min-w-[15rem] flex items-center z-50'>
-
             <ul className='flex flex-row justify-evenly'>
                 {
                     NAV_NAMES.map(s => {
@@ -41,7 +40,7 @@ function NavBar() {
                         
                         return (
 
-                            <li key={s.name} className='laptop:max-w-[8rem] laptop:min-w-[4.8rem] text-center showOpacity-1'>
+                            <li key={s.name} className='laptop:max-w-[8rem] laptop:min-w-[4.8rem] text-center transition-opacity-1'>
                                 <Link
                                     onMouseEnter={handlerMouseLinks}
                                     onMouseLeave={handlerLeaveLinks} 
@@ -59,13 +58,14 @@ function NavBar() {
             </ul>
             <div
                 ref={refLinks}
-                className={` absolute bg-cerise/20 backdrop-blur-lg rounded-md
+                className={` absolute bg-cerise/20 rounded-md
                             left-[var(--left)] top-[var(--top)]
                             w-[var(--width)] h-[var(--height)]
                             transition-all duration-300
                             ease-in-out
                             opacity-0
-                            z-[99999]
+                            invisible
+                            z-[9]
                             `}>
 
             </div>

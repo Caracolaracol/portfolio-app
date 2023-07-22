@@ -91,7 +91,7 @@ function NavBarMobile() {
     return (
         <div >
             <div onClick={handlerNavBar} className={`flex flex-col max-h-[3.6rem] min-h-[3.6rem] justify-end items-center mb-1`} >
-                <div className='flex justify-center bg-violet  dark:bg-violet active:bg-violet/80 dark:active:bg-violet/60 svgmorado rounded-full w-9 h-9 items-center cursor-pointer'>
+                <div className='flex justify-center bg-violet  dark:bg-violet active:bg-violet/80 dark:active:bg-violet/60 rounded-full w-9 h-9 items-center cursor-pointer'>
                     <p className='text-ocre dark:text-cerise hover:cursor-pointer hover:text-cerise font-tommybold font-black text-lg svg'>{`//`}</p>
                 </div>
                 <div>
@@ -114,7 +114,7 @@ function NavBarMobile() {
                             const isActive = pathname.startsWith(link.direccion);
 
                             return (
-                                <li key={link.name} className='laptop:max-w-[8rem] laptop:min-w-[4.8rem] text-center showOpacity-1 my-3'>
+                                <li key={link.name} className='laptop:max-w-[8rem] laptop:min-w-[4.8rem] text-center transition-opacity-1 my-3'>
                                     <Link
                                         href={link.direccion}
                                         className={`${styles} ${isActive ? '!text-ocre dark:!text-ocre' : ''} `

@@ -46,11 +46,11 @@ function Page() {
                             <Image
                                 alt="Myself with nature background"
                                 src={myself2}
-                                className="round_img1"
+                                className="circle_img_1"
                             />
                             <Image
                                 alt="Myself with other nature background "
-                                className="round_img2"
+                                className="circle_img_2"
                                 src={myself1}
                             />
                         </div>
