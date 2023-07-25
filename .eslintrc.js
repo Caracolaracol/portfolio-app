@@ -4,8 +4,8 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "next",
     ],
     "overrides": [
         {
@@ -22,11 +22,14 @@ module.exports = {
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": ["tsconfig.json"]
     },
     "plugins": [
         "react"
     ],
     "rules": {
+        "react/no-unescaped-entities": "off",
+        "@next/next/no-page-custom-font": "off"
     }
 }

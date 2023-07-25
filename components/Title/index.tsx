@@ -4,10 +4,10 @@ import ProjectsButton from './ProjectsButton'
 import NavigateProjects from './NavigateProjects'
 
 interface Props {
-  name: String,
-  nameES?: String,
-  idPreviousProject: String | boolean | null,
-  idNextProject: String | boolean | null
+  name: string,
+  nameES?: string,
+  idPreviousProject: string | boolean | null,
+  idNextProject: string | boolean | null
 }
 
 function Title({ name, nameES, idPreviousProject, idNextProject }: Props) {
