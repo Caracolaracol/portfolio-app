@@ -1,12 +1,81 @@
 import projects from '@/db/projects.json'
 
+
+
+export interface App {
+    id:             string;
+    name:           string;
+    nameES:         string;
+    projectType:    string;
+    description:    string;
+    descriptionES:  string;
+    opinion:        string;
+    opinionES:      string;
+    images:         string[];
+    imagesmobile:   string[];
+    video?:         string;
+    illustrations?: string;
+    github:         string;
+    link?:          string;
+    technologies:   Technology[];
+}
+
+interface Technology {
+    idtech:      string;
+    name:        string;
+    img:         string;
+    description: string;
+}
+
+export interface Art {
+    id:            string;
+    name:          string;
+    nameES:        string;
+    projectType:   string;
+    description:   string;
+    descriptionES: string;
+    opinion?:      string;
+    opinionES?:    string;
+    images?:       string[];
+    video?:         string;
+    imagesmobile?:   string[];
+    illustrations?: string;
+    github?:         string;
+    link?:          string;
+    technologies?:   Technology[];
+}
+
+export interface Video {
+    id:            string;
+    name:          string;
+    nameES?:        string;
+    projectType:   string;
+    description:   string;
+    descriptionES: string;
+    opinion?:      string;
+    opinionES?:    string;
+    imagesmobile?:   string[];
+    illustrations?: string;
+    images:        string[];
+    video:         string;
+    github?:         string;
+    link?:          string;
+    technologies:  Technology[];
+}
+interface AllProjectsDataArray {
+    websites:       App[];
+    codingProjects: App[];
+    apps:           App[];
+    videos:         Video[];
+    art:            Art[];
+}
 // GET PROJECTS NAME FOR ASIDE MENU
 export async function getProjectsNamesArray() {
-    const { websites, codingProjects, apps, videos, art } = projects
-    const allProjectsDataArray: any =  [...websites, ...codingProjects, ...apps, ...videos, ...art]
-    const namesArrayData:any = []
+    const { websites, codingProjects, apps, videos, art }: AllProjectsDataArray = projects
+    const allProjectsDataArray = [...websites, ...codingProjects, ...apps, ...videos, ...art]
+    const namesArrayData: {id:string, name:string, projectType: string}[] = []
     allProjectsDataArray.forEach((element: any) => {
-        let {id, name, projectType} = element
+        let {id, name, projectType}= element
         let newObject = {id, name, projectType}
         namesArrayData.push(newObject)
     });
@@ -14,16 +83,19 @@ export async function getProjectsNamesArray() {
 }
 
 // GET PROJECTS
-export async function getProjects(params:any) {
-    const {websites, codingProjects, apps, videos, art} = projects
-    const allProjectsDataArray: any = [...websites, ...codingProjects, ...apps, ...videos, ...art]
-    const projectFound = await allProjectsDataArray.find((el: any) => el.id === params.project)
-    const indexOfProject = await allProjectsDataArray.indexOf(projectFound)
-    const previousProject = await allProjectsDataArray[indexOfProject-1]
-    const nextProject = await allProjectsDataArray[indexOfProject+1]
-    const lastArrayIndex = await allProjectsDataArray.length - 1
-    const projectType = await projectFound.projectType
-    const projectData = JSON.parse(JSON.stringify(projectFound))
+export async function getProjects(params:{project:String}) {
+    const {websites, codingProjects, apps, videos, art}: AllProjectsDataArray = projects
+    const allProjectsDataArray: (App | Video | Art)[] = [...websites, ...codingProjects, ...apps, ...videos, ...art]
+    const projectFound = allProjectsDataArray.find((el) => el.id === params.project)
+    let indexOfProject, previousProject, nextProject, lastArrayIndex, projectType
+    if (projectFound != undefined) {
+        indexOfProject = allProjectsDataArray.indexOf(projectFound)
+        previousProject = allProjectsDataArray[indexOfProject-1]
+        nextProject = allProjectsDataArray[indexOfProject+1]
+        lastArrayIndex = allProjectsDataArray.length - 1
+        projectType = projectFound.projectType
+    }
+    const projectData: (App | Video | Art) = JSON.parse(JSON.stringify(projectFound))
     return  {allProjectsDataArray, projectData, projectFound, indexOfProject, previousProject, nextProject, lastArrayIndex, projectType} 
 }
 

@@ -1,8 +1,9 @@
+import { project } from '@/types/interfaces'
 import React from 'react'
 
-function Art() {
+function Art({projectData}: project) {
   return (
-    <div>Art</div>
+    <div>Soon...</div>
   )
 }
 

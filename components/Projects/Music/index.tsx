@@ -1,8 +1,9 @@
+import { project } from '@/types/interfaces'
 import React from 'react'
 
-function Music() {
+function Music({projectData}: project) {
   return (
-    <div>Music</div>
+    <div>Soon...</div>
   )
 }
 

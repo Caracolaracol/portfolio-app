@@ -18,7 +18,6 @@ interface Props {
 }
 
 
-
 export default async function Page({ params }: Props) {
     const data = await getProjects(params)
     const { idPreviousProject, idNextProject } = await pageControl(data.previousProject, data.nextProject, data.lastArrayIndex, data.indexOfProject)

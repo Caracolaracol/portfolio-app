@@ -34,7 +34,7 @@ a {
 
 @layer components {
   .background_noise {
-    background-image: url('../public/nnnoiseceriseopacity.svg');
+    background-image: url('../public/nnnoisecerise.svg');
   }
 
   .background_noise_dark {

@@ -1,8 +1,9 @@
+import { project } from '@/types/interfaces'
 import React from 'react'
 
-function MacroPhotography() {
+function MacroPhotography({projectData}: project) {
   return (
-    <div>MacroPhotography</div>
+    <div>Soon...</div>
   )
 }
 

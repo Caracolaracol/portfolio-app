@@ -5,7 +5,7 @@ import { useAtomValue } from 'jotai'
 
 interface Props {
   name: String,
-  nameES: String,
+  nameES?: String,
 }
 
 function TextTitle({ name, nameES }: Props) {
